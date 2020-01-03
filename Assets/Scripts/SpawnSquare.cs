@@ -3,22 +3,23 @@
 public class SpawnSquare : MonoBehaviour
 {
     public GameObject squarePrefab;
+    public Vector3 InitialPos;
     public float Nsec;
-    public Vector3 SpawnLocation0;
-    public Vector3 SpawnLocation1;
-    public Vector3 SpawnLocation2;
-    public Vector3 SpawnLocation3;
-    public Vector3 SpawnLocation4;
-    public Vector3 SpawnLocation5;
-    private Vector3[] locations;
+    public float SpawnLocation0;
+    public float SpawnLocation1;
+    public float SpawnLocation2;
+    public float SpawnLocation3;
+    public float SpawnLocation4;
+    public float SpawnLocation5;
+    public float[] locations;
     // Start is called before the first frame update
     void Start(){
-        locations = new Vector3[] { SpawnLocation0, SpawnLocation1, SpawnLocation2, SpawnLocation3, SpawnLocation4, SpawnLocation5 };
+        locations = new float[] { SpawnLocation0, SpawnLocation1, SpawnLocation2, SpawnLocation3, SpawnLocation4, SpawnLocation5 };
         int i = 0;
-        foreach (Vector3 l in locations)
+        foreach (float l in locations)
         {
 
-            if (l != Vector3.zero)
+            if (l != 0.0f)
             {
                 spawn(i);
             }
@@ -59,27 +60,27 @@ public class SpawnSquare : MonoBehaviour
 
 
                     {
-        Instantiate(squarePrefab, locations[0], Quaternion.identity);}
+        Instantiate(squarePrefab, new Vector3(locations[0],InitialPos.y, InitialPos.z), Quaternion.identity);}
     private void spw1()
 
 
 {
-        Instantiate(squarePrefab, locations[1], Quaternion.identity);
+        Instantiate(squarePrefab, new Vector3(locations[1], InitialPos.y, InitialPos.z), Quaternion.identity);
              }
      private void spw2()
     {
-        Instantiate(squarePrefab, locations[2], Quaternion.identity);
+        Instantiate(squarePrefab, new Vector3(locations[2], InitialPos.y, InitialPos.z), Quaternion.identity);
       }
             private void spw3(){
-        Instantiate(squarePrefab, locations[3], Quaternion.identity);
+        Instantiate(squarePrefab, new Vector3(locations[3], InitialPos.y, InitialPos.z), Quaternion.identity);
         }
                 private void spw4()
             {
-        Instantiate(squarePrefab, locations[4], Quaternion.identity);
+        Instantiate(squarePrefab, new Vector3(locations[4], InitialPos.y, InitialPos.z), Quaternion.identity);
                                     }
 
 
-    private void spw5(){Instantiate(squarePrefab, locations[5], Quaternion.identity);
+    private void spw5(){Instantiate(squarePrefab, new Vector3(locations[5], InitialPos.y, InitialPos.z), Quaternion.identity);
     }
 
    

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TriangBehaviour : MonoBehaviour
 {
-    private Vector3 pos;
+    private float posX;
     // Start is called before the first frame update
     void Start()
     {
 
-           pos = GetComponent<Transform>().position;
+        posX = GetComponent<Transform>().position.x;
        }
      
     // Update is called once per frame
@@ -19,19 +19,19 @@ public class TriangBehaviour : MonoBehaviour
            }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-           Vector3 [ ]oldLocationsOfSpawn ;
-        Vector3[] newLocationsOfSpawn=new Vector3 [6];
+           float [ ]oldLocationsOfSpawn ;
+        float[] newLocationsOfSpawn=new float[6];
         // oldLocationsOfSpawn = #####
         int i = 0;
-        foreach(Vector3 v in oldLocationsOfSpawn)
+        foreach(float p in oldLocationsOfSpawn)
         {
-            if(pos.x == v.x)
+            if(posX == p)
             {
-                newLocationsOfSpawn[i] = Vector3.zero;
+                newLocationsOfSpawn[i] = 0.0f;
                     }
             else
             {
-                newLocationsOfSpawn[i] = v;
+                newLocationsOfSpawn[i] = p;
                     }
             i++;
           }
