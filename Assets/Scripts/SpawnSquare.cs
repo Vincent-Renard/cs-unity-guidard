@@ -28,7 +28,7 @@ public class SpawnSquare : MonoBehaviour
     void Update()
     {
 
-       
+
     }
 
     private void spawn(int i)   {
@@ -48,12 +48,12 @@ public class SpawnSquare : MonoBehaviour
                 break;
         }  }
     private void spw0()
-    
-    
+
+
                     {
         Instantiate(squarePrefab, locations[0], Quaternion.identity);}
     private void spw1()
-   
+
 
 {
         Instantiate(squarePrefab, locations[1], Quaternion.identity);
