@@ -36,16 +36,16 @@ public class SpawnSquare : MonoBehaviour
         switch (i)
         {
             case 0:
-                spw0();
+                InvokeRepeating("spw0",i,Nsec);
                 break;
             case 1:
-                spw1();
+                InvokeRepeating("spw1", i, Nsec);
                 break;
             case 2:
-                spw2();
+                InvokeRepeating("spw2", i, Nsec);
                 break;
             case 3:
-                spw3();
+                InvokeRepeating("spw3", i, Nsec);
                 break;
         }
     }
