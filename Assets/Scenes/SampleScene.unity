@@ -342,13 +342,12 @@ MonoBehaviour:
     type: 3}
   InitialPos: {x: 0, y: 0, z: 0}
   Nsec: 2
-  SpawnLocation0: 0
-  SpawnLocation1: 0
+  SpawnLocation0: 1
+  SpawnLocation1: 4
   SpawnLocation2: 0
   SpawnLocation3: 0
   SpawnLocation4: 0
   SpawnLocation5: 0
-  locations: []
 --- !u!4 &183693269
 Transform:
   m_ObjectHideFlags: 0
@@ -357,7 +356,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183693267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5, y: -0.004133813, z: -9.919019}
+  m_LocalPosition: {x: -5.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
