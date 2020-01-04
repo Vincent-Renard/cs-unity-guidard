@@ -74,4 +74,10 @@ public class CircleBehaviour : MonoBehaviour
             Spawn();
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collider) {
+        if (!attached && collider.tag.Equals("enemy")) {
+            Destroy(collider.gameObject);
+        }
+    }
 }

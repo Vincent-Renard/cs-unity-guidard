@@ -8,10 +8,10 @@ public class TriangBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        gameObject.tag = "tree";
         posX = GetComponent<Transform>().position.x;
        }
-     
+
     // Update is called once per frame
     void Update()
     {
@@ -21,7 +21,7 @@ public class TriangBehaviour : MonoBehaviour
     {
 
 
-       
+
         if (collider.name.Equals("circle"))
         {
 

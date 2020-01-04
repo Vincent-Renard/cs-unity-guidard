@@ -15,11 +15,14 @@ public class SquareBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // si le 
+        // si le
     }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log(collider.name + " collision");
+        if (collider.tag.Equals("tree")) {
+            Destroy(collider.gameObject);
+            Destroy(gameObject);
+        }
     }
     private void OnDestroy()
     {
