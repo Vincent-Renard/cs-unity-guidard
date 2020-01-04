@@ -3,7 +3,7 @@
 public class SpawnSquare : MonoBehaviour
 {
     public GameObject squarePrefab;
-    public Vector3 InitialPos;
+    private Vector3 InitialPos;
     public float Nsec;
     public float SpawnLocation0;
     public float SpawnLocation1;
@@ -14,6 +14,8 @@ public class SpawnSquare : MonoBehaviour
     private float[] locations;
     // Start is called before the first frame update
     void Start(){
+        InitialPos.y = GetComponent<Transform>().position.y;
+        InitialPos.z = GetComponent<Transform>().position.z;
         this.Resync();
             }
 
