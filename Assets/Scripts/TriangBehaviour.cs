@@ -21,8 +21,15 @@ public class TriangBehaviour : MonoBehaviour
     {
 
 
-        Debug.Log("nom: " + collider.name);
+       
+        if (collider.name.Equals("circle"))
+        {
 
+        }
+        else
+        {
+            Debug.Log("collision ? destruction");
+        }
 
 
         /*
