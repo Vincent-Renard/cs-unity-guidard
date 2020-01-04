@@ -11,21 +11,26 @@ public class SpawnSquare : MonoBehaviour
     public float SpawnLocation3;
     public float SpawnLocation4;
     public float SpawnLocation5;
-    public float[] locations;
+    private float[] locations;
     // Start is called before the first frame update
     void Start(){
+        this.Resync();
+            }
+
+    public void Resync()
+    {
         locations = new float[] { SpawnLocation0, SpawnLocation1, SpawnLocation2, SpawnLocation3, SpawnLocation4, SpawnLocation5 };
         int i = 0;
         foreach (float l in locations)
         {
 
-            if (l != 0.0f)
+            if (!Equals(l, 0.0f))
             {
                 spawn(i);
             }
             i++;
         }
-                                         }
+    }
 
     // Update is called once per frame
     void Update()

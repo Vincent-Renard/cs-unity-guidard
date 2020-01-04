@@ -19,10 +19,17 @@ public class TriangBehaviour : MonoBehaviour
            }
     private void OnTriggerEnter2D(Collider2D collider)
     {
-           float [ ]oldLocationsOfSpawn ;
+
+
+        Debug.Log("nom: " + collider.name);
+
+
+
+        /*
+         float [ ]oldLocationsOfSpawn ;
         float[] newLocationsOfSpawn=new float[6];
-        // oldLocationsOfSpawn = #####
-        int i = 0;
+         oldLocationsOfSpawn = #####
+         int i = 0;
         foreach(float p in oldLocationsOfSpawn)
         {
             if(posX == p)
@@ -37,7 +44,7 @@ public class TriangBehaviour : MonoBehaviour
           }
             SpawnSquare ss = new SpawnSquare();
         //ss.run(?)
-        
+        */
     }
 
 
