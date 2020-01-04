@@ -11,13 +11,18 @@ public class CircleBehaviour : MonoBehaviour
 
     // true when the rock is still attached to elastics
     private bool attached;
-    private Rigidbody2D elastic1;
-    private Rigidbody2D elastic2;
+    private LineRenderer elastic;
+    private SpringJoint2D springJoint1;
+    private SpringJoint2D springJoint2;
 
     // Start is called before the first frame update
     void Start()
     {
         initialPosition = gameObject.transform.position;
+        elastic = GetComponent<LineRenderer>();
+        SpringJoint2D[] springJoints = GetComponents<SpringJoint2D>();
+        springJoint1 = springJoints[0];
+        springJoint2 = springJoints[1];
         Spawn();
     }
 
@@ -25,35 +30,20 @@ public class CircleBehaviour : MonoBehaviour
     void Update()
     {
         if (attached) {
-            // Draws first elastic
-            elastic1.GetComponent<LineRenderer>().SetPositions(new Vector3[] {
-                elastic1.position,
-                gameObject.transform.position
-            });
-            // Draws second elastic
-            elastic2.GetComponent<LineRenderer>().SetPositions(new Vector3[]{
-                elastic2.position,
-                gameObject.transform.position
+            elastic.SetPositions(new Vector3[] {
+                springJoint1.connectedBody.position,
+                gameObject.transform.position,
+                springJoint2.connectedBody.position
             });
         }
     }
 
     void Spawn()
     {
-        SpringJoint2D[] springJoints = GetComponents<SpringJoint2D>();
-
-        foreach (SpringJoint2D component in springJoints) {
-            component.enabled = true;
-        }
-
-        elastic1 = springJoints[0].connectedBody;
-        elastic2 = springJoints[1].connectedBody;
-
-        elastic1.GetComponent<LineRenderer>().enabled = true;
-        elastic2.GetComponent<LineRenderer>().enabled = true;
-
+        springJoint1.enabled = true;
+        springJoint2.enabled = true;
+        elastic.enabled = true;
         attached = true;
-
         gameObject.transform.position = initialPosition;
     }
 
@@ -73,13 +63,9 @@ public class CircleBehaviour : MonoBehaviour
 	}
 
     void OnMouseUp() {
-        foreach (SpringJoint2D component in GetComponents<SpringJoint2D>()) {
-            component.enabled = false;
-        }
-
-        elastic1.GetComponent<LineRenderer>().enabled = false;
-        elastic2.GetComponent<LineRenderer>().enabled = false;
-
+        springJoint1.enabled = false;
+        springJoint2.enabled = false;
+        elastic.enabled = false;
         attached = false;
     }
 
