@@ -7,6 +7,7 @@ public class CircleBehaviour : MonoBehaviour
     private Vector3 screenPoint;
     private Vector3 offset;
 
+    // true when the rock is still attached to elastics
     private bool attached;
 
     // Start is called before the first frame update
@@ -19,22 +20,36 @@ public class CircleBehaviour : MonoBehaviour
     void Update()
     {
         if (attached) {
-            var connected1 = GetComponents<SpringJoint2D>()[0].connectedBody;
-            var connected2 = GetComponents<SpringJoint2D>()[1].connectedBody;
-            connected1.GetComponent<LineRenderer>().SetPositions(new Vector3[]{new Vector3(connected1.position.x, connected1.position.y, 0), new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0)});
-            connected2.GetComponent<LineRenderer>().SetPositions(new Vector3[]{new Vector3(connected2.position.x, connected2.position.y, 0), new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0)});
+            SpringJoint2D[] springJoints = GetComponents<SpringJoint2D>();
+            Rigidbody2D connected1 = springJoints[0].connectedBody;
+            Rigidbody2D connected2 = springJoints[1].connectedBody;
+
+            // Draws first elastic
+            connected1.GetComponent<LineRenderer>().SetPositions(new Vector3[] {
+                connected1.position,
+                gameObject.transform.position
+            });
+            // Draws second elastic
+            connected2.GetComponent<LineRenderer>().SetPositions(new Vector3[]{
+                connected2.position,
+                gameObject.transform.position
+            });
         }
     }
 
-    void OnMouseDown(){
-		screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
-		offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+    void OnMouseDown() {
+        if (attached) {
+		    screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
+		    offset = gameObject.transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+        }
 	}
 
-	void OnMouseDrag(){
-		Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
-		Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
-		transform.position = cursorPosition;
+	void OnMouseDrag() {
+        if (attached) {
+		    Vector3 cursorPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+		    Vector3 cursorPosition = Camera.main.ScreenToWorldPoint(cursorPoint) + offset;
+		    transform.position = cursorPosition;
+        }
 	}
 
     void OnMouseUp() {
