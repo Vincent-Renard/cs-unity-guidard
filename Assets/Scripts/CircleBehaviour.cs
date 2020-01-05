@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CircleBehaviour : MonoBehaviour
 {
-    private Vector3 initialPosition;
+    public Vector3 initialPosition;
+    public GameObject circlePrefab;
 
     private Vector3 screenPoint;
     private Vector3 offset;
@@ -14,15 +15,16 @@ public class CircleBehaviour : MonoBehaviour
     private LineRenderer elastic;
     private SpringJoint2D springJoint1;
     private SpringJoint2D springJoint2;
+    private Renderer objectRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
-        initialPosition = gameObject.transform.position;
         elastic = GetComponent<LineRenderer>();
         SpringJoint2D[] springJoints = GetComponents<SpringJoint2D>();
         springJoint1 = springJoints[0];
         springJoint2 = springJoints[1];
+        objectRenderer = GetComponent<Renderer>();
         Spawn();
     }
 
@@ -36,6 +38,12 @@ public class CircleBehaviour : MonoBehaviour
                 springJoint2.connectedBody.position
             });
         }
+        else {
+            if (!objectRenderer.isVisible) {
+                Instantiate(circlePrefab, initialPosition, Quaternion.identity);
+                Destroy(gameObject);
+            }
+        }
     }
 
     void Spawn()
@@ -44,7 +52,6 @@ public class CircleBehaviour : MonoBehaviour
         springJoint2.enabled = true;
         elastic.enabled = true;
         attached = true;
-        gameObject.transform.position = initialPosition;
     }
 
     void OnMouseDown() {
@@ -67,12 +74,6 @@ public class CircleBehaviour : MonoBehaviour
         springJoint2.enabled = false;
         elastic.enabled = false;
         attached = false;
-    }
-
-    void OnBecameInvisible() {
-        if (!attached) {
-            Spawn();
-        }
     }
 
     void OnTriggerEnter2D(Collider2D collider) {

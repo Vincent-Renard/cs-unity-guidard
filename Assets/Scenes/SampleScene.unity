@@ -415,12 +415,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 457378179}
+  - component: {fileID: 457378182}
   - component: {fileID: 457378178}
   - component: {fileID: 457378176}
   - component: {fileID: 457378177}
   - component: {fileID: 457378180}
   - component: {fileID: 457378181}
-  - component: {fileID: 457378182}
   - component: {fileID: 457378183}
   m_Layer: 0
   m_Name: circle
@@ -580,6 +580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4d16ccb5cfc5bb43a26e57f5954693f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialPosition: {x: 0, y: -0.54, z: 0}
+  circlePrefab: {fileID: 457378175}
 --- !u!120 &457378183
 LineRenderer:
   m_ObjectHideFlags: 0
