@@ -7,7 +7,7 @@ public class CircleBehaviour : MonoBehaviour
 {
     public Vector3 initialPosition;
     public GameObject circlePrefab;
-    public Canvas squareScorePrefab;
+    public Text squareScorePrefab;
 
     public float scoreLifetime;
     public int scorePoints;
@@ -23,8 +23,8 @@ public class CircleBehaviour : MonoBehaviour
     private SpringJoint2D springJoint2;
     private Renderer objectRenderer;
 
-    private static int score = 0;
     private int currentPoints;
+    private PlayingScene settings;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +34,7 @@ public class CircleBehaviour : MonoBehaviour
         springJoint1 = springJoints[0];
         springJoint2 = springJoints[1];
         objectRenderer = GetComponent<Renderer>();
+        settings = FindObjectOfType<PlayingScene>();
         Spawn();
     }
 
@@ -96,19 +97,18 @@ public class CircleBehaviour : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collider) {
         if (!attached && collider.tag.Equals("enemy")) {
             Vector3 diedPosition = Camera.main.WorldToScreenPoint(collider.gameObject.transform.position);
-            Canvas scoreCanvas = Instantiate(squareScorePrefab, diedPosition, Quaternion.identity);
-            Text scoreText = scoreCanvas.GetComponentInChildren<Text>();
+            Text scoreText = Instantiate(squareScorePrefab, diedPosition, Quaternion.identity, FindObjectOfType<Canvas>().transform);
             scoreText.text = "+ " + currentPoints;
             UpdateScore();
             scoreText.transform.position = diedPosition;
-            Destroy(scoreCanvas.gameObject, scoreLifetime);
+            Destroy(scoreText.gameObject, scoreLifetime);
             Destroy(collider.gameObject);
         }
     }
 
     void UpdateScore()
     {
-        score += currentPoints;
+        settings.AddScore(currentPoints);
         currentPoints = currentPoints * scoreMultiplicator;
     }
 }
