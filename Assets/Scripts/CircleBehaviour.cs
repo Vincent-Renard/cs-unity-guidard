@@ -1,11 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CircleBehaviour : MonoBehaviour
 {
     public Vector3 initialPosition;
     public GameObject circlePrefab;
+    public Canvas squareScorePrefab;
+
+    public float scoreLifetime;
+    public int scorePoints;
+    public int scoreMultiplicator;
 
     private Vector3 screenPoint;
     private Vector3 offset;
@@ -16,6 +22,9 @@ public class CircleBehaviour : MonoBehaviour
     private SpringJoint2D springJoint1;
     private SpringJoint2D springJoint2;
     private Renderer objectRenderer;
+
+    private static int score = 0;
+    private int currentPoints;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +58,8 @@ public class CircleBehaviour : MonoBehaviour
         DrawElastic();
         elastic.enabled = true;
         attached = true;
+
+        currentPoints = scorePoints;
     }
 
     void DrawElastic()
@@ -84,7 +95,20 @@ public class CircleBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider) {
         if (!attached && collider.tag.Equals("enemy")) {
+            Vector3 diedPosition = Camera.main.WorldToScreenPoint(collider.gameObject.transform.position);
+            Canvas scoreCanvas = Instantiate(squareScorePrefab, diedPosition, Quaternion.identity);
+            Text scoreText = scoreCanvas.GetComponentInChildren<Text>();
+            scoreText.text = "+ " + currentPoints;
+            UpdateScore();
+            scoreText.transform.position = diedPosition;
+            Destroy(scoreCanvas.gameObject, scoreLifetime);
             Destroy(collider.gameObject);
         }
+    }
+
+    void UpdateScore()
+    {
+        score += currentPoints;
+        currentPoints = currentPoints * scoreMultiplicator;
     }
 }
