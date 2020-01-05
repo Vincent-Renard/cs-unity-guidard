@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 1099361082633930965, guid: 1300986542039e24e9104b541a0a3a79,
     type: 3}
-  NTicks: 40
+  NTicks: 25
   SpawnLocation0: -5.8
   SpawnLocation1: -4.2
   SpawnLocation2: -2.6
@@ -297,11 +297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7316e81889dbe47eeb9604727b0e9ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posX: 0
 --- !u!61 &370081120
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1012,11 +1007,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7316e81889dbe47eeb9604727b0e9ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posX: 0
 --- !u!1 &1054194067
 GameObject:
   m_ObjectHideFlags: 0
@@ -1148,11 +1138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7316e81889dbe47eeb9604727b0e9ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posX: 0
 --- !u!61 &1097738857
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1294,11 +1279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7316e81889dbe47eeb9604727b0e9ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posX: 0
 --- !u!61 &1281820629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1530,11 +1510,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7316e81889dbe47eeb9604727b0e9ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posX: 0
 --- !u!61 &1527370395
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1900,11 +1875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7316e81889dbe47eeb9604727b0e9ef4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Name: 
-  m_EditorClassIdentifier: 
-  posX: 0
 --- !u!61 &2046235831
 BoxCollider2D:
   m_ObjectHideFlags: 0
