@@ -24,7 +24,7 @@ public class CircleBehaviour : MonoBehaviour
     private Renderer objectRenderer;
 
     private int currentPoints;
-    private GlobalScore globalScore;
+    private PlayingScene settings;
 
     // Start is called before the first frame update
     void Start()
@@ -34,7 +34,7 @@ public class CircleBehaviour : MonoBehaviour
         springJoint1 = springJoints[0];
         springJoint2 = springJoints[1];
         objectRenderer = GetComponent<Renderer>();
-        globalScore = FindObjectOfType<GlobalScore>();
+        settings = FindObjectOfType<PlayingScene>();
         Spawn();
     }
 
@@ -108,7 +108,7 @@ public class CircleBehaviour : MonoBehaviour
 
     void UpdateScore()
     {
-        globalScore.AddScore(currentPoints);
+        settings.AddScore(currentPoints);
         currentPoints = currentPoints * scoreMultiplicator;
     }
 }

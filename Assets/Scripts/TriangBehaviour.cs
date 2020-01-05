@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TriangBehaviour : MonoBehaviour
 {
+    private static int nbTrees = 6;
     private float posX;
     // Start is called before the first frame update
     void Start()
@@ -54,5 +56,11 @@ public class TriangBehaviour : MonoBehaviour
         */
     }
 
-
+    void OnDestroy()
+    {
+        nbTrees -= 1;
+        if (nbTrees == 0) {
+            SceneManager.LoadScene("EndScene");
+        }
+    }
 }
