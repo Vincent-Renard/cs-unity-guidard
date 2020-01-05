@@ -32,11 +32,7 @@ public class CircleBehaviour : MonoBehaviour
     void Update()
     {
         if (attached) {
-            elastic.SetPositions(new Vector3[] {
-                springJoint1.connectedBody.position,
-                gameObject.transform.position,
-                springJoint2.connectedBody.position
-            });
+            DrawElastic();
         }
         else {
             if (!objectRenderer.isVisible) {
@@ -50,8 +46,18 @@ public class CircleBehaviour : MonoBehaviour
     {
         springJoint1.enabled = true;
         springJoint2.enabled = true;
+        DrawElastic();
         elastic.enabled = true;
         attached = true;
+    }
+
+    void DrawElastic()
+    {
+        elastic.SetPositions(new Vector3[] {
+            springJoint1.connectedBody.position,
+            gameObject.transform.position,
+            springJoint2.connectedBody.position
+        });
     }
 
     void OnMouseDown() {
