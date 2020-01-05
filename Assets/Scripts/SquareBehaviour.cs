@@ -18,7 +18,7 @@ public class SquareBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (treeTarget != null) {
+        if (treeTarget != null && gameObject.transform.position.y > treeTarget.transform.position.y) {
             float step = speed * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, treeTarget.transform.position, step);
         }
