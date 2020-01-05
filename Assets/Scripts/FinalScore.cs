@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class FinalScore : MonoBehaviour
@@ -17,7 +15,7 @@ public class FinalScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = "Score : " + finalScore;
+        text.text = "Game Over \n Score : " + finalScore;
     }
 
     public void SetFinalScore(int score)
