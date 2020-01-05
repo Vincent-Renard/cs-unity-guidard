@@ -28,7 +28,7 @@ public class TriangBehaviour : MonoBehaviour
         }
         else
         {
-            Debug.Log("collision ? destruction");
+            Debug.Log(posX+" is dead");
         }
 
 
