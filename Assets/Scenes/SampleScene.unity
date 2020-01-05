@@ -659,10 +659,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: -0.54, z: 0}
   circlePrefab: {fileID: 457378175}
-  squareScorePrefab: {fileID: 0}
-  scoreLifetime: 0
-  scorePoints: 0
-  scoreMultiplicator: 0
+  squareScorePrefab: {fileID: 1054194070}
+  scoreLifetime: 1
+  scorePoints: 100
+  scoreMultiplicator: 2
 --- !u!120 &457378183
 LineRenderer:
   m_ObjectHideFlags: 0
