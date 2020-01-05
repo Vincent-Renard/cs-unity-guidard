@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 1099361082633930965, guid: 1300986542039e24e9104b541a0a3a79,
     type: 3}
-  Nsec: 3
+  NTicks: 20
   SpawnLocation0: -5.8
   SpawnLocation1: -4.2
   SpawnLocation2: -2.6
@@ -259,7 +259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 183693267}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.5, y: 8, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -659,10 +659,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialPosition: {x: 0, y: -0.54, z: 0}
   circlePrefab: {fileID: 457378175}
-  squareScorePrefab: {fileID: 1054194070}
-  scoreLifetime: 1
-  scorePoints: 100
-  scoreMultiplicator: 2
+  squareScorePrefab: {fileID: 0}
+  scoreLifetime: 0
+  scorePoints: 0
+  scoreMultiplicator: 0
 --- !u!120 &457378183
 LineRenderer:
   m_ObjectHideFlags: 0
