@@ -244,7 +244,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   squarePrefab: {fileID: 1099361082633930965, guid: 1300986542039e24e9104b541a0a3a79,
     type: 3}
-  NTicks: 20
+  NTicks: 40
   SpawnLocation0: -5.8
   SpawnLocation1: -4.2
   SpawnLocation2: -2.6
