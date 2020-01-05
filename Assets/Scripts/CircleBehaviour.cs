@@ -46,7 +46,8 @@ public class CircleBehaviour : MonoBehaviour
         }
         else {
             if (!objectRenderer.isVisible) {
-                Instantiate(circlePrefab, initialPosition, Quaternion.identity);
+                GameObject newCircle = Instantiate(circlePrefab, initialPosition, Quaternion.identity);
+                newCircle.name = "circle";
                 Destroy(gameObject);
             }
         }

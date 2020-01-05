@@ -47,13 +47,14 @@ public class SpawnSquare : MonoBehaviour
         {
             Spawn(activeSpawners[i]);
         }
-       
+
     }
-   
+
 
     private void Spawn(int iSpawner) {
-        
+
         GameObject square = Instantiate(squarePrefab, new Vector3(locations[iSpawner], InitialPos.y, InitialPos.z), Quaternion.identity);
+        square.name = "square";
         square.tag = "enemy";
     }
 }
