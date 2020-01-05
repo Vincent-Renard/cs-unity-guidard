@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class TriangBehaviour : MonoBehaviour
+public class TriangleBehaviour : MonoBehaviour
 {
-    public static int nbTrees;
+    private static int nbTrees=6;
     private float posX;
     // Start is called before the first frame update
     void Start()
@@ -18,7 +18,7 @@ public class TriangBehaviour : MonoBehaviour
     {
 
     }
-
+   
     void OnDestroy()
     {
         nbTrees --;

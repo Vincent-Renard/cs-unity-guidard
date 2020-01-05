@@ -15,7 +15,8 @@ public class FinalScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = "Game Over \n Score : " + finalScore;
+        text.text = "Game Over \n " +
+        	"Score : " + finalScore;
     }
 
     public void SetFinalScore(int score)
